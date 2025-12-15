@@ -1,34 +1,16 @@
 class Student:
-    def __init__(self, name, marks):
-        self.name = name
-        self.marks = marks
+    def __init__(self, first_name, last_name, birth_date, city, street, zip_code, phone):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.birth_date = birth_date
+        self.city = city
+        self.street = street
+        self.zip_code = zip_code
+        self.phone = phone
 
-    def is_passed(self):
-        # Obliczamy sumę ocen
-        suma = sum(self.marks)
-        # Obliczamy ilość ocen
-        ilosc = len(self.marks)
+    def __str__(self):
+        return f"Student: {self.first_name} {self.last_name}, tel: {self.phone}"
 
-        # Obliczamy średnią
-        srednia = suma / ilosc
-
-        if srednia > 50:
-            return True
-        else:
-            return False
-
-
-# --- Sprawdzenie ---
-
-# Tworzymy obiekt 1 (Jan ma same 60-tki, więc zdał)
-student1 = Student("Jan", [60, 60, 60])
-wynik1 = student1.is_passed()
-print(wynik1)
-
-# Tworzymy obiekt 2 (Anna ma same 30-tki, nie zdała)
-student2 = Student("Anna", [30, 30, 30])
-wynik2 = student2.is_passed()
-print(wynik2)
 
 # 1. Klasa Library
 class Library:
@@ -86,7 +68,7 @@ class Order:
         return (
             f"ZAMÓWIENIE z dnia {self.order_date}:\n"
             f"  Obsługa: {self.employee}\n"
-            f"  Zamawiający: {self.student.name}\n"
+            f"  Zamawiający: {self.student.first_name} {self.student.last_name}\n"
             f"  Książki:\n\t- {books_description}"
         )
 
@@ -102,10 +84,10 @@ emp1 = Employee("Adam", "Mickiewicz", "2020-01-01", "1980-05-05", "Warszawa", "W
 emp2 = Employee("Juliusz", "Słowacki", "2021-06-01", "1990-07-07", "Kraków", "Długa", "31-002", "444-555-666")
 emp3 = Employee("Cyprian", "Norwid", "2022-03-15", "1985-12-12", "Gdańsk", "Morska", "80-001", "777-888-999")
 
-# 3 Studentów (wykorzystujemy klasę z Zadania 1)
-s1 = Student("Tomek", [45, 50])
-s2 = Student("Kasia", [90, 80])
-s3 = Student("Marek", [55, 55])
+# 3 Studentów (dostosowani do Systemu Bibliotecznego)
+s1 = Student("Tomek", "Nowak", "2000-05-15", "Warszawa", "Piękna 10", "00-005", "555-666-777")
+s2 = Student("Kasia", "Kowalski", "2001-08-22", "Kraków", "Główna 5", "31-005", "555-777-888")
+s3 = Student("Marek", "Lewandowski", "2002-03-18", "Gdańsk", "Portowa 12", "80-005", "555-888-999")
 
 # 5 Książek
 # Przypisujemy książki do konkretnych bibliotek (obiektów lib1 i lib2)
